@@ -1,4 +1,4 @@
-// Product Data with optimized image URLs
+        // Product Data with optimized image URLs
 const products = [
     // Fashion
     { id: 1, name: "Premium Cotton T-Shirt", price: 29.99, category: "fashion", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center", alt: "Premium white cotton t-shirt" },
@@ -697,4 +697,3 @@ if (document.readyState === 'loading') {
 
 // Schedule non-critical tasks
 scheduleNonCriticalTasks();
-
