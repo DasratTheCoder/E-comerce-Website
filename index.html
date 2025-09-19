@@ -4,38 +4,784 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dasrat Store - Premium Shopping Experience</title>
+    <title>Dasrat Store - Premium Fashion, Electronics & Home Goods | Best Prices Online</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Shop premium fashion, electronics, shoes, accessories and home goods at Dasrat Store. Free shipping on orders over $50. Fast delivery and 30-day returns.">
+    <meta name="keywords" content="fashion, electronics, shoes, accessories, home goods, online shopping, premium products, free shipping">
+    <meta name="author" content="Dasrat Store">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dasratstore.com">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Dasrat Store - Premium Shopping Experience">
+    <meta property="og:description" content="Discover premium products with exceptional quality and style at Dasrat Store.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dasratstore.com">
+    <meta property="og:site_name" content="Dasrat Store">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dasrat Store - Premium Shopping Experience">
+    <meta name="twitter:description" content="Discover premium products with exceptional quality and style.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Performance: Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Performance: Critical CSS inlined -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Performance: GPU acceleration for animations */
+        .gpu-accelerated {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            background: linear-gradient(45deg, #fff, #ccc);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .logo:hover {
+            color: #666;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #666;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: transform 0.3s ease;
+            background: #333;
+            border-radius: 8px;
+            border: 1px solid #444;
+            color: #fff;
+            font-size: 1.2rem;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.05);
+            background: #444;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #fff;
+            color: #000;
+            border-radius: 50%;
+            min-width: 20px;
+            height: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        .page {
+            display: none;
+            min-height: calc(100vh - 80px);
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Hero Section - Performance optimized */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #666);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #ccc;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            min-height: 44px;
+            min-width: 120px;
+        }
+
+        .cta-btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Featured Products */
+        .featured-section {
+            padding: 4rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Performance: Optimized grid with proper sizing */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            contain: layout;
+        }
+
+        .product-card {
+            background: #111;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #444;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Performance: Optimized images */
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: #222;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            background: #333;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .product-price::before {
+            content: '$';
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 0.8rem;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            min-height: 44px;
+        }
+
+        .add-to-cart:hover {
+            background: #555;
+            transform: translateY(-1px);
+        }
+
+        /* Shop Page */
+        .shop-header {
+            padding: 2rem 5%;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            background: #222;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            min-height: 44px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #fff;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .shop-content {
+            padding: 2rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Product Details Page */
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            padding: 2rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .product-detail-image {
+            width: 100%;
+            height: 400px;
+            background: #222;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .product-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-detail-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-detail-info .price {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .product-detail-info .price::before {
+            content: '$';
+        }
+
+        .product-description {
+            margin-bottom: 2rem;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quantity-btn {
+            width: 44px;
+            height: 44px;
+            border: 1px solid #333;
+            background: #111;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-btn:hover {
+            background: #333;
+        }
+
+        .quantity-input {
+            width: 80px;
+            text-align: center;
+            padding: 0.8rem;
+            background: #111;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        /* Cart Page */
+        .cart-content {
+            padding: 2rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #111;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            border: 1px solid #222;
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            background: #222;
+            border-radius: 8px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .cart-total {
+            background: #111;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #222;
+            margin-top: 2rem;
+            text-align: right;
+        }
+
+        .cart-total h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .remove-btn {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 36px;
+        }
+
+        .remove-btn:hover {
+            background: #555;
+        }
+
+        /* Checkout Page */
+        .checkout-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: #111;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #555;
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .order-summary {
+            background: #111;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #222;
+            margin-bottom: 2rem;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #666;
+        }
+
+        .success-message {
+            background: #111;
+            border: 1px solid #333;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        /* Performance: Reduce layout shifts */
+        .loading-placeholder {
+            background: #222;
+            border-radius: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* Focus indicators */
+        button:focus,
+        input:focus,
+        a:focus {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design - Mobile First */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 3%;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+                border-top: 1px solid #333;
+                gap: 1rem;
+            }
+
+            .nav-links.mobile-active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero {
+                height: 60vh;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+
+            .product-detail {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .category-filter {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                font-size: 0.9rem;
+                padding: 0.6rem 1rem;
+            }
+
+            .featured-section,
+            .shop-content {
+                padding: 2rem 3%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card {
+                padding: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .quantity-selector {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Performance: Contain layout changes */
+        .products-grid {
+            contain: layout style;
+        }
+
+        .product-card {
+            contain: layout style paint;
+        }
+
+        /* Preload hover states */
+        @media (hover: hover) {
+            .product-card:hover .add-to-cart {
+                background: #555;
+            }
+        }
+    </style>
+
+    <!-- Schema.org structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Dasrat Store",
+        "description": "Premium fashion, electronics, shoes, accessories and home goods online store",
+        "url": "https://dasratstore.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://dasratstore.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
 </head>
 
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+    
     <!-- Header -->
-    <header>
-        <nav>
-            <a href="#" class="logo" onclick="showPage('home')">Dasrat Store</a>
-            <ul class="nav-links">
-                <li><a onclick="showPage('home')">Home</a></li>
-                <li><a onclick="showPage('shop')">Shop</a></li>
-                <li><a onclick="showPage('cart')">Cart</a></li>
+    <header role="banner">
+        <nav role="navigation" aria-label="Main navigation">
+            <a href="#" class="logo" onclick="showPage('home')" aria-label="Dasrat Store Home">
+                <span>DASRAT</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="showPage('home')" role="button" tabindex="0">Home</a></li>
+                <li><a onclick="showPage('shop')" role="button" tabindex="0">Shop</a></li>
+                <li><a onclick="showPage('cart')" role="button" tabindex="0">Cart</a></li>
             </ul>
-            <div class="cart-icon" onclick="showPage('cart')">
-                🛒
-                <span class="cart-count" id="cartCount">0</span>
-            </div>
-            <div class="mobile-menu">
+            <button class="cart-icon" onclick="showPage('cart')" aria-label="View shopping cart">
+                <span class="sr-only">Shopping Cart</span>
+                Cart
+                <span class="cart-count" id="cartCount" aria-label="Items in cart">0</span>
+            </button>
+            <button class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </nav>
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main id="main-content">
         <!-- Home Page -->
         <div id="home" class="page active">
-            <section class="hero">
+            <section class="hero" role="banner">
                 <div class="hero-content">
                     <h1>Welcome to Dasrat Store</h1>
                     <p>Discover premium products with exceptional quality and style</p>
@@ -43,9 +789,9 @@
                 </div>
             </section>
 
-            <section class="featured-section">
-                <h2 class="section-title">Featured Products</h2>
-                <div class="products-grid" id="featuredProducts">
+            <section class="featured-section" role="region" aria-labelledby="featured-title">
+                <h2 class="section-title" id="featured-title">Featured Products</h2>
+                <div class="products-grid" id="featuredProducts" role="list" aria-label="Featured products">
                     <!-- Featured products will be dynamically loaded here -->
                 </div>
             </section>
@@ -55,17 +801,17 @@
         <div id="shop" class="page">
             <div class="shop-header">
                 <h1 class="section-title">Shop All Products</h1>
-                <div class="category-filter">
-                    <button class="filter-btn active" onclick="filterProducts('all')">All</button>
-                    <button class="filter-btn" onclick="filterProducts('fashion')">Fashion</button>
-                    <button class="filter-btn" onclick="filterProducts('gadgets')">Gadgets</button>
-                    <button class="filter-btn" onclick="filterProducts('accessories')">Accessories</button>
-                    <button class="filter-btn" onclick="filterProducts('shoes')">Shoes</button>
-                    <button class="filter-btn" onclick="filterProducts('home')">Home</button>
-                </div>
+                <nav class="category-filter" role="navigation" aria-label="Product categories">
+                    <button class="filter-btn active" onclick="filterProducts('all')" aria-pressed="true">All</button>
+                    <button class="filter-btn" onclick="filterProducts('fashion')" aria-pressed="false">Fashion</button>
+                    <button class="filter-btn" onclick="filterProducts('gadgets')" aria-pressed="false">Gadgets</button>
+                    <button class="filter-btn" onclick="filterProducts('accessories')" aria-pressed="false">Accessories</button>
+                    <button class="filter-btn" onclick="filterProducts('shoes')" aria-pressed="false">Shoes</button>
+                    <button class="filter-btn" onclick="filterProducts('home')" aria-pressed="false">Home</button>
+                </nav>
             </div>
             <div class="shop-content">
-                <div class="products-grid" id="allProducts">
+                <div class="products-grid" id="allProducts" role="list" aria-label="All products">
                     <!-- All products will be dynamically loaded here -->
                 </div>
             </div>
@@ -82,13 +828,12 @@
         <div id="cart" class="page">
             <div class="cart-content">
                 <h2 class="section-title">Shopping Cart</h2>
-                <div id="cartItems">
+                <div id="cartItems" role="list" aria-label="Cart items">
                     <!-- Cart items will be dynamically loaded here -->
                 </div>
                 <div class="cart-total" id="cartTotal" style="display: none;">
                     <h3>Total: $<span id="totalAmount">0.00</span></h3>
-                    <button class="cta-btn" onclick="showPage('checkout')" style="margin-top: 1rem;">Proceed to
-                        Checkout</button>
+                    <button class="cta-btn" onclick="showPage('checkout')" style="margin-top: 1rem;">Proceed to Checkout</button>
                 </div>
             </div>
         </div>
@@ -100,36 +845,36 @@
                 <div class="order-summary" id="orderSummary">
                     <!-- Order summary will be loaded here -->
                 </div>
-                <form id="checkoutForm">
+                <form id="checkoutForm" role="form" aria-label="Checkout form">
                     <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" id="fullName" name="fullName" required>
-                        <div class="error-message" id="fullNameError"></div>
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required aria-describedby="fullNameError">
+                        <div class="error-message" id="fullNameError" role="alert"></div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                        <div class="error-message" id="emailError"></div>
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required aria-describedby="emailError">
+                        <div class="error-message" id="emailError" role="alert"></div>
                     </div>
                     <div class="form-group">
-                        <label for="address">Address</label>
-                        <textarea id="address" name="address" rows="3" required></textarea>
-                        <div class="error-message" id="addressError"></div>
+                        <label for="address">Address *</label>
+                        <textarea id="address" name="address" rows="3" required aria-describedby="addressError"></textarea>
+                        <div class="error-message" id="addressError" role="alert"></div>
                     </div>
                     <div class="form-group">
-                        <label for="cardNumber">Card Number</label>
-                        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
-                        <div class="error-message" id="cardNumberError"></div>
+                        <label for="cardNumber">Card Number *</label>
+                        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required aria-describedby="cardNumberError">
+                        <div class="error-message" id="cardNumberError" role="alert"></div>
                     </div>
                     <div class="form-group">
-                        <label for="expiryDate">Expiry Date</label>
-                        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
-                        <div class="error-message" id="expiryDateError"></div>
+                        <label for="expiryDate">Expiry Date *</label>
+                        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required aria-describedby="expiryDateError">
+                        <div class="error-message" id="expiryDateError" role="alert"></div>
                     </div>
                     <div class="form-group">
-                        <label for="cvv">CVV</label>
-                        <input type="text" id="cvv" name="cvv" placeholder="123" required>
-                        <div class="error-message" id="cvvError"></div>
+                        <label for="cvv">CVV *</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123" required aria-describedby="cvvError">
+                        <div class="error-message" id="cvvError" role="alert"></div>
                     </div>
                     <button type="submit" class="cta-btn" style="width: 100%;">Place Order</button>
                 </form>
@@ -137,7 +882,12 @@
         </div>
     </main>
 
-    <script src="script.js"></script>
+   <script src="script.js"></script>
+
+    <!-- Performance: DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//images.unsplash.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
 </body>
 
 </html>
