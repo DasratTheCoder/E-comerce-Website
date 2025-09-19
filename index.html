@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dasrat Store - Premium Shopping Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo" onclick="showPage('home')">Dasrat Store</a>
+            <ul class="nav-links">
+                <li><a onclick="showPage('home')">Home</a></li>
+                <li><a onclick="showPage('shop')">Shop</a></li>
+                <li><a onclick="showPage('cart')">Cart</a></li>
+            </ul>
+            <div class="cart-icon" onclick="showPage('cart')">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Welcome to Dasrat Store</h1>
+                    <p>Discover premium products with exceptional quality and style</p>
+                    <button class="cta-btn" onclick="showPage('shop')">Shop Now</button>
+                </div>
+            </section>
+
+            <section class="featured-section">
+                <h2 class="section-title">Featured Products</h2>
+                <div class="products-grid" id="featuredProducts">
+                    <!-- Featured products will be dynamically loaded here -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Shop Page -->
+        <div id="shop" class="page">
+            <div class="shop-header">
+                <h1 class="section-title">Shop All Products</h1>
+                <div class="category-filter">
+                    <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+                    <button class="filter-btn" onclick="filterProducts('fashion')">Fashion</button>
+                    <button class="filter-btn" onclick="filterProducts('gadgets')">Gadgets</button>
+                    <button class="filter-btn" onclick="filterProducts('accessories')">Accessories</button>
+                    <button class="filter-btn" onclick="filterProducts('shoes')">Shoes</button>
+                    <button class="filter-btn" onclick="filterProducts('home')">Home</button>
+                </div>
+            </div>
+            <div class="shop-content">
+                <div class="products-grid" id="allProducts">
+                    <!-- All products will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Details Page -->
+        <div id="productDetail" class="page">
+            <div class="product-detail" id="productDetailContent">
+                <!-- Product details will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <!-- Cart Page -->
+        <div id="cart" class="page">
+            <div class="cart-content">
+                <h2 class="section-title">Shopping Cart</h2>
+                <div id="cartItems">
+                    <!-- Cart items will be dynamically loaded here -->
+                </div>
+                <div class="cart-total" id="cartTotal" style="display: none;">
+                    <h3>Total: $<span id="totalAmount">0.00</span></h3>
+                    <button class="cta-btn" onclick="showPage('checkout')" style="margin-top: 1rem;">Proceed to
+                        Checkout</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checkout Page -->
+        <div id="checkout" class="page">
+            <div class="checkout-form">
+                <h2 class="section-title">Checkout</h2>
+                <div class="order-summary" id="orderSummary">
+                    <!-- Order summary will be loaded here -->
+                </div>
+                <form id="checkoutForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                        <div class="error-message" id="fullNameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address" rows="3" required></textarea>
+                        <div class="error-message" id="addressError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+                        <div class="error-message" id="cardNumberError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiryDate">Expiry Date</label>
+                        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+                        <div class="error-message" id="expiryDateError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                        <div class="error-message" id="cvvError"></div>
+                    </div>
+                    <button type="submit" class="cta-btn" style="width: 100%;">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
